@@ -1,6 +1,10 @@
 <?php
-  require "db.php";
+  require "config.php";
   require "core/engine.php";
+  
+  if(!accessChecker()){
+    header("Location: /");
+  }
 
   $insert = null;
 

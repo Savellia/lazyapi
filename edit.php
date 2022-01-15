@@ -1,6 +1,10 @@
 <?php
-  require "db.php";
+  require "config.php";
   require "core/engine.php";
+  
+  if(!accessChecker()){
+    header("Location: /");
+  }
 
   if(isset($_GET["id"]) && is_numeric($_GET["id"])){
     $id = htmlentities(addslashes($_GET["id"]));

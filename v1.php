@@ -8,13 +8,12 @@
 	}
 
 	if($allowed){
-		require "db.php";
+		require "config.php";
 		require "core/engine.php";
 		$endpoint = getEndpointByName($endpointName);
 
 		if($endpoint){
-			$domain = parse_url($_SERVER["HTTP_ORIGIN"])["host"];
-			$domainChecker = domainChecker($domain, $endpoint["domains"]);
+			$domainChecker = domainChecker($endpoint["domains"]);
 
 			if($domainChecker){
 

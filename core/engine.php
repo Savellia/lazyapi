@@ -37,6 +37,34 @@
 		return request("SELECT * FROM endpoints");
 	}
 
+	function accessChecker(){
+		return $_SESSION['access'];
+	}
+
+	function installSQLChecker(){
+		$state = true;
+		if(!request("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'endpoints'")){
+			$state = false;
+		}
+		if(!request("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'domains'")){
+			$state = false;
+		}
+		if(!request("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'parameters'")){
+			$state = false;
+		}
+
+		return $state;
+	}
+
+	function userAPIAccessChecker(){
+		$state = true;
+		if(empty($_ENV["apiConnector"]["apiUser"]) || empty($_ENV["apiConnector"]["apiPass"])){
+			$state = false;
+		}
+
+		return $state;
+	}
+
 	function insertEndpoint($name, $description, $method, $path, $function, $state, $parametersName, $parametersType, $domainsName){
 		$endpoint = request("INSERT INTO endpoints (name, description, method, pathToFile, functionName, available) VALUES ('$name', '$description', '$method', '$path', '$function', '$state')");
 
@@ -106,7 +134,6 @@
 		}else{
 			return false;
 		}
-
 	}
 
 	function getEndpointById($id){
@@ -194,10 +221,12 @@
 		return $data;
 	}
 
-	function domainChecker($domain, $allowedDomains){
+	function domainChecker($allowedDomains){
 		if(!isset($_SERVER["HTTP_ORIGIN"])){
 			header('HTTP/1.0 403 Forbidden');
 			return false;
+		}else{
+			$domain = parse_url($_SERVER["HTTP_ORIGIN"])["host"];
 		}
 
 		if(count($allowedDomains) > 0){
