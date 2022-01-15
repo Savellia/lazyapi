@@ -51,7 +51,7 @@
 
           <?php
             if(userAPIAccessChecker()){
-              echo "<div class=\"col-12\"><div class=\"row\"><div class=\"col-auto\"><button type=\"submit\" class=\"goto rounded px-2 py-1\"><i class=\"bi bi-check2\"></i> Installation done</button></div></div></div>";
+              echo "<div class=\"col-12\"><div class=\"row\"><div class=\"col-auto\"><a href=\"../\"><button class=\"goto rounded px-2 py-1\"><i class=\"bi bi-check2\"></i> Installation done</button></a></div></div></div>";
             }
           ?>
         </div>
