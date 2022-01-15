@@ -1,0 +1,68 @@
+body{
+	background: #FCFBFF;
+}
+
+.endpoint{
+	position: relative;
+	background: #FFFFFF;
+	-webkit-box-shadow: 5px 0px 50px 7px rgba(224,224,224,0.32); 
+	box-shadow: 5px 0px 50px 7px rgba(224,224,224,0.32);
+}
+
+.method, .name{
+	font-weight: bold;
+}
+
+.method.get{
+	background: #F5F1FF;
+	color: #9271FE;
+}
+
+.method.post{
+	background: #F0F5FB;
+	color: #6B9DFE;
+}
+
+.goto{
+	background: #E5FFE6;
+	color: #47bb4e;
+	border: none;
+}
+
+.edit{
+	background: #EAF4FE;
+	color: #2D8BFC;
+	border: none;
+}
+
+.delete, .delete:hover{
+	background: #FEF0ED;
+	color: #FF7F58;
+	border: none;
+}
+
+.add,.back{
+	background: #EAF4FE;
+	color: #2D8BFC;
+	border: none;
+}
+
+.normal{
+	background: #e3e3e3;
+	color: #5a5a5a;
+	border: none;
+}
+
+.on{
+	border-color: #9DEFA3 !important;
+}
+
+.off{
+	border-color: #FF3B21 !important;
+}
+
+.goto-trash{
+	align-self: self-end;
+	margin-bottom: 3px;
+}
+
