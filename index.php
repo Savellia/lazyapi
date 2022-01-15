@@ -49,19 +49,19 @@
         <form action="" method="post">
           <div class="row">
             <div class="col-5 endpoint  rounded my-2 p-3 border">
-              <div class="row mb-3">
+              <div class="row mb-3 justify-content-center">
                 <div class="col-6">
                   <label for="user" class="form-label">User</label>
                   <input type="text" class="form-control" id="user" name="user" required>
                 </div>
               </div>
-              <div class="row mb-3">
+              <div class="row mb-3 justify-content-center">
                 <div class="col-6">
                   <label for="password" class="form-label">Password</label>
                   <input type="password" class="form-control" id="password" name="password" required>
                 </div>
               </div>
-                <div class="row">
+                <div class="row justify-content-center">
                   <div class="col-auto">
                     <?php
                       if (!file_exists("./install/")) {
