@@ -30,28 +30,6 @@
         <div class="endpoint row rounded my-2 p-3 border">
           <div class="col-6">
             <div class="row">
-              <h3 class="col-auto">How to set up LazyAPI ?</h3>
-            </div>
-            <div class="mb-3">
-              <ol>
-                <li>Open the file 'db.php'.</li>
-                <li>Change information by yours.</li>
-                <li>Save.</li>
-                <li>insert the .sql in your database.</li>
-                <li>The icon below (<i class='bi bi-server'></i>) should turn to green after a refresh (<i class='bi bi-arrow-clockwise'></i>).</li>
-              </ol>
-              <?php
-                if($_ENV['dbAccess'] instanceof PDO){
-                  echo "<button class='goto rounded px-2 py-1' data-bs-toggle='tooltip' data-bs-placement='top' title='Connected to the database'><i class='bi bi-server'></i></button>";
-                }else{
-                  echo "<button class='delete rounded px-2 py-1' data-bs-toggle='tooltip' data-bs-placement='top' title='".$_ENV['dbAccess']."'><i class='bi bi-server'></i></button>";
-                }
-              ?>
-              <button class='normal rounded px-2 py-1'  data-bs-toggle='tooltip' data-bs-placement='top' title='Reload' onClick='window.location.reload();'><i class='bi bi-arrow-clockwise'></i></button>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="row">
               <h3>Who is behind this tool ?</h3>
             </div>
             <div class="mb-3">

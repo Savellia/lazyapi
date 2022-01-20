@@ -176,7 +176,8 @@
                 <div class="mb-3">
                   <label for="function" class="form-label">Function name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="function" name="function" placeholder="className::functionName" value="<?php echo $endpoint["functionName"]; ?>" required>
-                  <small class="form-text">Do not insert parameters with the function name. You have to add the class if needed.</small>
+                  <p class="mb-0"><small class="form-text">Do not insert parameters with the function name. You have to add the class if needed.</small></p>
+                  <p><small class="form-text">Preview:</small> <small class="form-text preview-function">a</small>(<small class="form-text preview-parameters">b</small>)</p>
                 </div>
               </div>
             </div>
@@ -214,8 +215,8 @@
         }else{
           $( ".alert-no-domains" ).hide();
         }
+        callPreview();
       });
-
       $( document ).on( "click", ".add.param", function() {
         var parameter = "<div class='row parameter mb-3'> <div class='col-auto'> <label class='form-label'>Name</label> <input type='text' class='form-control parameter-name' name='parameter-name[]'> </div><div class='col-auto'> <label class='form-label'>Type</label> <select class='form-select parameter-type' name='parameter-type[]'> <option value='int'>int</option> <option value='numeric'>numeric</option> <option value='float'>float</option> <option value='string'>string</option> <option value='bool'>bool</option> <option value='array'>array</option> <option value='object'>object</option> <option value='unsecured'>unsecured</option> </select> </div><div class='col-auto goto-trash'> <button class='delete param rounded px-2 py-1' data-bs-toggle='tooltip' data-bs-placement='top' title='Delete the parameter'><i class='bi bi-trash'></i></button> </div></div>";
         $( parameter ).appendTo( ".parameters-list" );
@@ -240,6 +241,19 @@
           $( ".alert-no-domains" ).show();
         }
       });
+    </script>
+    <script type="text/javascript">
+      $( document ).on( "input", "#function, .parameter-name", function() {
+        callPreview();
+      });
+      function callPreview(){
+        var tmp = "";
+        $( ".parameter-name" ).each(function( index ) {
+          tmp += $( this ).val()+", ";
+        });
+        $("small.preview-function").text($("#function").val());
+        $("small.preview-parameters").text(tmp.slice(0,-2));
+      }
     </script>
   </body>
 </html>

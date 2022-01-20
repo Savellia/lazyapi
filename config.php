@@ -10,7 +10,7 @@
 		"dbDriver" => "mysql"
 	);
 
-	# Configure your user API access.
+	# Configure your LazyAPI user access.
 	$_ENV["apiConnector"] = array(
 		"apiUser" => "root",
 		"apiPass" => "password"
